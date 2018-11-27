@@ -1,0 +1,9 @@
+I"Æ(function() {
+  App.product = App.cable.subscriptions.create("ProductChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {}
+  });
+
+}).call(this);
+:ET

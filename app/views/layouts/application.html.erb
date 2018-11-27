@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.min.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+
+    <div class="collapse navbar-collapse" style="background-color:#fafafa;">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Home', home_index_path %></li>
+        <li><%= link_to 'About', home_about_path %></li>
+        <li><%= link_to 'Products', products_path %></li>
+        <li><%= link_to "Orders", orders_path %></li>
+        <li><%= link_to 'Contact', home_contact_path %></li>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? && current_user.first_name? %>
+        <% if current_order && current_order.status == "open"%>
+        <li> <%= link_to("Koszyk: " + current_user.orders.last.total_price.to_s, order_path(current_order)) %></li>
+        <% end %>
+        <li> <%= link_to "#{current_user.first_name + ' ' + current_user.last_name}" , user_path(current_user.id) %></li>
+        <li> <%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        <% else %>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path  %></li>
+        <% end %>
+
+        <%= form_with(url: products_path, method: 'get', local: true, class: 'navbar-form navbar-right search-form') do |form| %>
+        <div class="input-group add-on">
+          <%= form.text_field :q, id: 'q', class: "form-control", placeholder: "Search ...", value: params[:q] %>
+        </ul>
+
+      </div><!-- input-group-btn -->
+    </div>
+
+    <% end %>
+
+  </div><!-- right -->
+
+</div><!-- myNavbar -->
+
+</div><!-- end container-fluid -->
+</nav><!-- end navbar -->
+
+<!-- / row -->
+<% flash.each do |key, value| %>
+<div class="<%= flash_class(key) %>">
+  <%= value %>
+</div>
+<% end %>
+
+<% if notice %>
+<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+<p class="alert alert-danger"><%= alert %></p>
+<% end %>
+<%= yield %>
+</div>
+
+</body>
+</ul>
+<footer>
+  &copy; 2018 Dronnie
+</footer>
+</html>

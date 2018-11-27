@@ -1,0 +1,30 @@
+<div class="page-header page-header-sm" data-parallax="false">
+  <div class="filter"></div>
+  <div class="container">
+    <div class="motto text-center">
+      <h1 id="head">Dronnie</h1>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container text-center">
+  <h1 class="text-center"> All orders</h1>
+  <div class="row">
+    <% @orders.each do |order| %>
+      <div class="col-md-12 card list">
+        <h4 class="text-info">
+          Order #<%= order.id %>
+        </h4>
+        <h4 class="text-info">
+          Status: <%= order.status %>
+        </h4>
+      <h4 class="text-danger text-center">
+        Price:  <%= order.total_price %>
+      </h4>
+      <br>
+      <%= link_to 'View', order, :class => "btn btn-info btn-link btn-lg" %>
+    </div>
+<% end %>
+</div>
+<%= link_to 'Back', root_path, :class => " btn btn-defualt btn-link btn-lg" %>
+</div>

@@ -1,0 +1,40 @@
+<center>
+
+  <p data-product-id= "<%= @product.id %>">
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @product.description %>
+  </p>
+<p>
+  <strong>Image url:</strong>
+  <% if @product.image_url.present? %>
+  <%= image_tag(@product.image_url, class: "img-responsive img-zoom", data_zoom_image: "@product.image_url") %>
+  <% end %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+  $
+</p>
+
+<br>
+<br>
+<p>Average Rating: <%= @product.average_rating %> </p>
+<p>Highest Rating: <%= @product.highest_rating %> </p>
+<p>Lowest Rating: <%= @product.lowest_rating %> </p>
+<hr/>
+<br>
+<h2>Add a Comment</h2>
+<br>
+<%= render 'new_comment' %>
+
+
+<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+<%= render 'comments' %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

@@ -1,0 +1,5 @@
+
+
+<h2><%= Product.find(order_item.product_id).name%></h2>
+<p><%= order_item.price %>$</p>
+<%= button_to 'Delete from cart', order_item_path(order_item.id), method: :delete  %>

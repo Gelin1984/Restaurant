@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: postgresql
+  url: postgres://fsaukfpdmucuqh:27017fcb94573e05811dcebba697d65123fa2d2c70866fbde049e8f11cef9192@ec2-54-163-236-188.compute-1.amazonaws.com:5432/d78iol4jmmteui
+  channel_prefix: TDP_production

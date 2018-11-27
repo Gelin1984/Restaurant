@@ -1,0 +1,8 @@
+<%= form_tag "/payments/create" do %>
+  <%= render partial: "shared/stripe_checkout_button" %>
+  <%= hidden_field_tag(:order_id, current_order.id) %>
+<% end %>
+
+<% current_order.order_items.each do |item| %>
+   <%= render item %>
+<% end %>
