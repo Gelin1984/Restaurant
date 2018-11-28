@@ -7,6 +7,7 @@ Bundler.require(*Rails.groups)
 
 module TDP
   class Application < Rails::Application
+    config.assets.initialize_on_precompile = false
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
@@ -18,3 +19,5 @@ module TDP
     # , { expires_in: 90.minutes }
   end
 end
+
+
