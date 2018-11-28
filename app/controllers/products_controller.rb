@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   load_and_authorize_resource
 
 
-  
+
 
   # GET /products
   # GET /products.json
@@ -54,7 +54,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        redirect_to @product, notice: 'Product was successfully updated.' 
       else
         format.html { render :edit }
       end
