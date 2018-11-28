@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   has_many :comments
-  belongs_to :order_item
+  
 
   def self.search(search_term)
     if Rails.env.production?

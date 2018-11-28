@@ -2,6 +2,7 @@
   "name": "TDP",
   "private": true,
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "yarn": "^1.12.3"
   }
 }
