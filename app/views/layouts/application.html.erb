@@ -40,7 +40,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? && current_user.first_name? %>
         <% if current_order && current_order.status == "open"%>
-        <li> <%= link_to("Koszyk: " + current_user.orders.last.total_price.to_s, order_path(current_order)) %></li>
+        <li> <%= link_to("Cart: " + current_order.total_price.to_s, order_path(current_order)) %></li>
         <% end %>
         <li> <%= link_to "#{current_user.first_name + ' ' + current_user.last_name}" , user_path(current_user.id) %></li>
         <li> <%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
