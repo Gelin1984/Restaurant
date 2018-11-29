@@ -10,6 +10,7 @@
 <div class="container text-center">
   <h1 class="text-center"> Orders from this month</h1>
   <div class="row">
+    <h2 class="text-center"> <%= "Total value from this month: " + @month_price.to_s %> </h2>
     <% @orders_m.each do |order| %>
       <div class="col-md-12 card list">
         <h4 class="text-info">

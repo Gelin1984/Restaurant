@@ -64,6 +64,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
     @product.destroy
+    redirect_to products_path
   end
 
   private
