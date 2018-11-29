@@ -69,4 +69,4 @@ gem 'stripe'
 gem "brakeman"
 gem 'dalli'
 gem 'redis-rails'
- gem 'pg'
+gem 'pg'
