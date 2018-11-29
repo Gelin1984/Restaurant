@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
 	def current_order
-		current_user.orders.last
+		current_user.orders.last if current_user.orders.last
 	end
 end

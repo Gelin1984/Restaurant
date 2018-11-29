@@ -54,7 +54,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
       if @product.update(product_params)
-        redirect_to @product, notice: 'Product was successfully updated.' 
+        redirect_to @product, notice: 'Product was successfully updated.'
       else
         format.html { render :edit }
       end

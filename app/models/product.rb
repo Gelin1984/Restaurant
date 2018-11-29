@@ -3,8 +3,8 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
-  has_many :comments
-  
+  has_many :comments, :dependent => :delete_all 
+
 
   def self.search(search_term)
     if Rails.env.production?

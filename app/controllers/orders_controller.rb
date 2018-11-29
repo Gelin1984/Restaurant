@@ -3,15 +3,22 @@ class OrdersController < ApplicationController
 
   def index
     if current_user.admin?
-      @orders = Order.order('id DESC')
+      @orders_o = Order.where("cast(strftime('%m', created_at) as int) < ?", Time.now.month).order('id DESC')
+      @orders_m = Order.where("cast(strftime('%m', created_at) as int) = ?", Time.now.month).order('id DESC')
     else
-      @orders = current_user.orders.order('id DESC')
-
+      @orders_o = current_user.orders.where("cast(strftime('%m', created_at) as int) < ?", Time.now.month).order('id DESC')
+      @orders_m = current_user.orders.where("cast(strftime('%m', created_at) as int) = ?", Time.now.month).order('id DESC')
     end
   end
 
   def show
-    @order = Order.find(params[:id])
+
+
+    if current_user.admin?
+      @order = Order.find(params[:id])
+    else
+      @order = current_user.orders.find(params[:id])
+    end
   end
 
   def create

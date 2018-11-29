@@ -8,9 +8,9 @@
 </div>
 <br>
 <div class="container text-center">
-  <h1 class="text-center"> All orders</h1>
+  <h1 class="text-center"> Orders from this month</h1>
   <div class="row">
-    <% @orders.each do |order| %>
+    <% @orders_m.each do |order| %>
       <div class="col-md-12 card list">
         <h4 class="text-info">
           Order #<%= order.id %>
@@ -24,6 +24,25 @@
       <br>
       <%= link_to 'View', order, :class => "btn btn-info btn-link btn-lg" %>
     </div>
+<% end %>
+
+<h1 class="text-center"> Other orders </h1>
+
+<div class="row">
+  <% @orders_o.each do |order| %>
+    <div class="col-md-12 card list">
+      <h4 class="text-info">
+        Order #<%= order.id %>
+      </h4>
+      <h4 class="text-info">
+        Status: <%= order.status %>
+      </h4>
+    <h4 class="text-danger text-center">
+      Price:  <%= order.total_price %>
+    </h4>
+    <br>
+    <%= link_to 'View', order, :class => "btn btn-info btn-link btn-lg" %>
+  </div>
 <% end %>
 </div>
 <%= link_to 'Back', root_path, :class => " btn btn-defualt btn-link btn-lg" %>

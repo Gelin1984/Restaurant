@@ -216,9 +216,9 @@ video {
 
 .fish {
   background-image: url('https://data.whicdn.com/images/183208666/original.gif');
-  width: 435px;
-  height: 404px;
-  margin-left: -135px;
+  width: 400px;
+  height: 304px;
+  margin-left: -235px;
   position: absolute;
   animation: myfirst 24s;
   -webkit-animation: myfirst 24s;
@@ -232,11 +232,11 @@ video {
   top: 50px;
 }
 
-
-
-
-
-
+#fish2 {
+  top: 260px;
+  animation-delay: 12s;
+  -webkit-animation-delay: 12s;
+}
 
 
 #form {
